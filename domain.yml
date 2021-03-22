@@ -1,0 +1,53 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  # - affirm
+  # - deny
+  - ask_event_details
+  - ask_hotel_details
+  - ask_ticket_details
+
+responses:
+  utter_greet:
+  - buttons:
+      - payload: show me the ticket details
+        title: Ticket Details
+      - payload: show me the event details
+        title: Events Details
+      - payload: which hotels are nearby?
+        title: Stay Options
+    text: "Hey! Hope you are doing Good. Let me know How can I help you Today?"
+
+  # utter_cheer_up:
+  # - text: "Here is something to cheer you up:"
+  #   image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  # utter_did_that_help:
+  # - text: "Did that help you?"
+
+  # utter_happy:
+  # - text: "Great, carry on!"
+
+  utter_event_details:
+  - text: We are Organising the Event at Bangalore. The Event Start on 31st of March and Continue to 2nd April 2021. Timings for the event will be 10AM - 4PM.
+
+
+  utter_ticket_details:
+  - text: Ticket are Priced at $20 each. Click on the link below to Book the Ticket - https://www.google.com
+
+  utter_goodbye:
+  - text: Hope This helps, Have a Nice day Ahead.
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+actions:
+  - show_hotel_details
+  - show_ticket_details
+  - show_event_details
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
